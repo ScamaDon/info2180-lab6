@@ -4,16 +4,18 @@ window.onload = function () {
  
  function findWord(str){
   if (str.length == 0){
-   
-  }
+   document.getElementById('word').innerHTML = '';
+   return;
+  }else{
   var httpRequest = new XMLHttpRequest();
   httpRequest.onreadystatechange = function(){
-   if (this.readyState == 4 && this.readyState == 200){
-    document.getElementById('button').innerHTML = this.responseText;
+   if (this.readyState == 4 && this.status == 200){
+    document.getElementById('word').innerHTML = alert('This is working');
    }
   }
-  httpRequest.open("GET", "request.php?="+ str,"true");
+  httpRequest.open("GET", "request.php?q="+ str,"true");
   httpRequest.send();
+ }
  }
 }
 
