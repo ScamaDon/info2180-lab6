@@ -27,7 +27,48 @@ $definition = [
 
 
 
-print "<h3>" . strtoupper($query) . "</h3>";
+//print "<h3>" . strtoupper($query) . "</h3>";
 
-print "<p>" . $definition[$query] . "</p>";
+//print "<p>" . $definition[$query] . "</p>";
+
+$xmlinfo = '<?xml version="1.0" encoding="UTF-8"?>
+    <dict>
+        <word>
+            <sr>definition</sr>
+            <defn>A statement of the exact meaning of a word, especially in a dictionary.</defn>
+        </word>
+        <word>
+            <sr>bar</sr>
+            <defn>A place that sells alcholic beverages.</defn>
+        </word>
+        <word>
+            <sr>ajax</sr>
+            <defn>Technique which involves the use of javascript and xml (or JSON)</defn>
+        </word>
+        <word>
+            <sr>html</sr>
+            <defn>The standard markup language for creating web pages and web applications.</defn>
+        </word>
+        <word>
+            <sr>css</sr>
+            <defn>A style sheet language used for describing the presentation of a document written in a markup language.</defn>
+        </word>
+        <word>
+            <sr>javascript</sr>
+            <defn>A lightweight, interpreted programming language with first-class functions that adds interactivity to your website.</defn>
+        </word>
+        <word>
+            <sr>php</sr>
+            <defn>A server-side scripting language, and a powerful tool for making dynamic and interactive websites</defn>
+        </word>
+    </dict>';
+    
+    if(isset($_GET['all']) && $_GET['all'] == 'true'){
+        header('Content-Type: text/xml');
+        $xmlOP = new simpleXMLElement($xmlinfo);
+        echo $xmlOP -> asXML();
+    }else{
+         print "<h3>" . strtoupper($query) . "</h3>";
+         print "<p>" . $definition[$query] . "</p>";
+    }
 ?>

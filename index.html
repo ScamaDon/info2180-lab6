@@ -3,23 +3,30 @@
     
    <head>
     <link rel = "stylesheet" type = "text/css" href = "dict.css" >
-    <script src="dict.js" type="text/javascript"></script>
-    <script src="https://code.jquery.com/ jquery-3.1.1.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="test.js" type="text/javascript"></script> 
    </head>
    
    <body>
+       <div class = 'container'>
+           
        <h1 id = 'header'>Web Dictionary</h1>
        
-       <p>Look up the definition of a word (eg. Ajax, html, bar, css, php,definition)</p>
-       <form>
-            <input id= 'word' type="text"/>
-            <input id = 'submit' type="submit" name="Search" value = 'Search'/>
+       <p id = 'instructions'>Look up the definition of a word (eg. Ajax, html, bar, css, php,definition)</p>
+      
+       <form id = 'prevent' onsubmit = 'prevDef()'>
+            <input placeholder ='Eg.Ajax' id = 'word' type="text" name = 'input'/>
+            <button type='button' id='search' name ='button' value ='ok'>Search</button>
+            <button type='button' id ='searchAll' name= 'button' value ='ok'>Search All</button>
        </form>
        
        <hr>
-       <p><em><h2>Results</h2></em></p>
        
-       <div id ='results'></div>
+       <em><h1 id=res>Results</h1></em>
+       <div id ='result'></div>
+        <div id ='results'></div>
+       
+       </div>
    </body>
     
 </html>
